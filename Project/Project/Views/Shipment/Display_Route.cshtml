@@ -1,0 +1,103 @@
+﻿@model IEnumerable<Project.Models.Shipment>
+
+<style>
+    th {
+        padding: 10px;
+        font-size: medium;
+        background-color: darksalmon;
+        text-align: center;
+    }
+</style>
+
+<body class="admin-div">
+
+    <div class="bg-image h-100" style="background-color: #8ebcdb; margin-top:5%">
+        @if (ViewBag.route_msg != null)
+        {
+            <div style="border: 1px solid red ;font-size:larger; height:50px">
+                @ViewBag.route_msg
+            </div>
+
+            <p>
+                @Html.ActionLink("Back to PlaceOrder", "PlaceOrder", "Orders")
+            </p>
+        }
+        else
+        {
+            <h2 style="text-align:center;"><b>List Of Companies </b></h2>
+            <table class="table table-bordered .thead-light" style="background-color:lightgray;text-align:center">
+                <tr>
+                    <th>
+                        <b>  ROUTE ID</b>
+
+                    </th>
+                    <th>
+                        <b>SOURCE</b>
+
+                    </th>
+                    <th>
+                        <b>DESTINATION</b>
+
+                    </th>
+                    <th>
+                        <b>BASE PRICE</b>
+
+                    </th>
+                    <th>
+                        <b>DISTANCE</b>
+
+                    </th>
+                    <th>
+                        <b>COMPANY NAME</b>
+
+                    </th>
+                    <th>
+
+                    </th>
+                    <th>
+
+                    </th>
+
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Route_ID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Source)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Destination)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Base_Price)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Distance)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Company.Company_Name)
+                        </td>
+                        <td>
+                            @Html.ActionLink("COMPANY DETAIL", "Show_Company", new { id = item.Company_ID })
+                        </td>
+                        <td>
+                            @Html.ActionLink("Select", "Confirm", new { id = item.Route_ID }, new { @class = "btn btn-success" })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        }
+    </div>
+     <div style="height:200px;"></div>
+</body>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

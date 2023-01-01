@@ -1,0 +1,45 @@
+﻿@model Project.Models.Tracking
+
+
+<style>
+    .container-12 {
+        margin-left: 35%;
+        margin-top: 50px;
+        margin-right: 20%;
+        width: 420px;
+        background-color: ghostwhite;
+        font-family: Courier New, Courier, monospace;
+        padding: 20px;
+    }
+</style>
+<body style="background-image: url('/Images/update.jpg'); background-size: cover;">
+    @using (Html.BeginForm("Tracking_Update", "Tracking", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="container-12">
+            <h3 style="text-align:center;color:cadetblue"><b>UPDATE STATUS</b></h3>
+            <hr />
+            <h4><b>TRACKING NUMBER :</b> @Html.DisplayFor(model => model.Tracking_Number)</h4>
+            <h5><b>ORDER TIMING : @Html.DisplayFor(model => model.Order_Details.Order_Time)</b></h5>
+            <br />
+            <hr />
+            <h4><b>SOURCE : </b>@Html.DisplayFor(model => model.Order_Details.Source_Description)</h4>
+            <h4><b>DESTINATION : </b>@Html.DisplayFor(model => model.Order_Details.Dest_Description)</h4>
+            <br />
+            <span><b>UPDATE STATUS :</b> </span>
+            @Html.DropDownListFor(model => model.Order_Status, new SelectList(ViewBag.order_stages), " ----- select status ----- ")
+            @Html.ValidationMessageFor(model => model.Order_Status, "", new { @class = "text-danger" })
+            <br />
+            <div style="margin:20px">
+                <input type="submit" value="Save" class="btn btn-success" />
+            </div>
+        </div>
+    }
+
+</body>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

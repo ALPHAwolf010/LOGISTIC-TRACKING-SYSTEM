@@ -1,0 +1,72 @@
+﻿@using Project.Models;
+
+@model List<Register_Company>
+
+
+@{
+    ViewData["Title"] = "Request_List";
+}
+
+<body class="admin-div">
+    <div style="margin:10px;background-color:gainsboro;">
+        <h3 style="text-align:center;font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif, Arial, sans-serif;margin-top:10px;padding-top:8px;color:steelblue;"><b>VERIFY COMPANY</b></h3>
+        <hr />
+        <table class="table table-bordered .thead-dark">
+            <thead style="background-color:cornflowerblue;padding:15px;">
+                <tr>
+                    <th>
+                        COMPANY ID
+                    </th>
+                    <th>
+                        COMPANY NAME
+                    </th>
+                    <th>
+                        CONTACT NUMBER
+                    </th>
+                    <th>
+                        ADDRESS
+                    </th>
+                    <th style="text-align:center">
+                        &nbsp;&nbsp; TAKE ACTION
+                    </th>
+
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.company.Company_ID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.company.Company_Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.company.Contact_Number)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.company.Address)
+                        </td>
+                        <td style="text-align:center ;color:white;text-decoration-line:none">
+                            @Html.ActionLink("Approve", "Approve", new { id = item.company.User_ids }, new { @class = "btn btn-success" }))
+                            &nbsp;&nbsp;
+                            @Html.ActionLink("Delete", "Delete", new { id = item.user.Users_ID }, new { @class = "btn btn-danger" }))
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <hr />
+
+    </div>@if(Model.Count()<=10)
+    {
+      <div style="height:200px;"></div>
+    }
+</body>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

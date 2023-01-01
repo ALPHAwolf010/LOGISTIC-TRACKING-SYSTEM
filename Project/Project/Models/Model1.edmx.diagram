@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2d791cf1347c46b5920fced8a3496097" Name="Diagram1">
+        <EntityTypeShape EntityType="ProjectModel.Company" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectModel.Order_Details" Width="1.5" PointX="9.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectModel.Payment" Width="1.5" PointX="12" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectModel.Role" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectModel.Shipment" Width="1.5" PointX="7.5" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectModel.sysdiagram" Width="1.5" PointX="0.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectModel.Tracking" Width="1.5" PointX="12" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectModel.User" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <AssociationConnector Association="ProjectModel.FK__Company__User_id__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectModel.FK__Shipment__Compan__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectModel.FK__Tracking__Compan__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectModel.FK__Order_Det__Ship___31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectModel.FK__Order_Det__User___30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectModel.FK__Payment__Order_I__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectModel.FK__Tracking__Order___398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectModel.FK__Users__Role_ID__267ABA7A" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

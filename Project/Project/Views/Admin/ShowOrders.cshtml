@@ -1,0 +1,114 @@
+﻿@model IEnumerable<Project.Models.Order_Details>
+
+@{
+    ViewData["Title"] = "ShowOrders";
+}
+
+<style>
+    th {
+        padding: 15px;
+        font-size: medium;
+        padding-left: 5px;
+        background-color: peachpuff;
+        color: dodgerblue;
+    }
+</style>
+
+<body class="admin-div">
+    <div class="bg-image h-100" style="background-color: #8ebcdb; margin-top:5%">
+        <table class="table table-bordered .thead-light" style="background-color:lightgray;text-align:center">
+            <tr>
+                <th>
+                    ORDER ID
+
+                </th>
+
+                <th>
+                    VALUATION
+
+                </th>
+                <th>
+                    QUANTITY
+
+                </th>
+                <th>
+                    WEIGHT
+
+                </th>
+                <th>
+                    SOURCE
+
+                </th>
+                <th>
+                    DESTINATION
+
+                </th>
+
+                <th>
+                    TOTAL PRICE
+
+                </th>
+                <th>
+                    ORDER TIME
+
+                </th>
+                <th>
+                    COMPANY NAME
+
+                </th>
+
+                <th></th>
+            </tr>
+            @if (Model.Count() > 0)
+            {
+                foreach (var item in Model)
+                {
+                <tr>
+                    <td>
+
+                        @Html.DisplayFor(modelItem => item.Order_ID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Order_Valuation)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Quantity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OrderWeight)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Order_Source)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Order_Destination)
+                    </td>
+
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Total_Price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Order_Time)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Shipment.Company.Company_Name)
+                    </td>
+
+                </tr>
+                }
+            }
+        </table>
+    </div>
+    @if(Model.Count()<=10)
+    {
+      <div style="height:200px;"></div>
+    }
+</body>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
